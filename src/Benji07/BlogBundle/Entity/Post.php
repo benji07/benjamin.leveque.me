@@ -73,6 +73,7 @@ class Post
      * @var datetime $publishedAt
      *
      * @ORM\Column(name="published_at", type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="change", field="status", value="1")
      */
     private $publishedAt;
 
@@ -80,6 +81,7 @@ class Post
      * @var datetime $createdAt
      *
      * @ORM\Column(name="created_at", type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
     private $createdAt;
 
@@ -87,16 +89,9 @@ class Post
      * @var datetime $updatedAt
      *
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="update")
      */
     private $updatedAt;
-
-    /**
-     * __construct
-     */
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime('now');
-    }
 
     /**
      * Get id
@@ -308,21 +303,6 @@ class Post
     public function __toString()
     {
         return (string) $this->getTitle();
-    }
-
-    /**
-     * On Post save
-     *
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
-    public function preSave()
-    {
-        $this->updatedAt = new \DateTime('now');
-
-        if ($this->status == self::STATUS_PUBLISHED && null === $this->getPublishedAt()) {
-            $this->setPublishedAt(new \DateTime('now'));
-        }
     }
 
     /**
