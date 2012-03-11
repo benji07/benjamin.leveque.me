@@ -5,13 +5,11 @@
 
     <script type="text/javascript" src="{{ asset('js/prettify.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/lang-yaml.js') }}"></script>
-
-    <script type="text/javascript">
-        setTimeout(function() {prettyPrint();}, 1);
-    </script>
+    <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
 {% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/son-of-obsidian.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
 {% endblock %}

@@ -12,4 +12,39 @@ use Doctrine\ORM\EntityRepository;
  */
 class PostRepository extends EntityRepository
 {
+    /**
+     * Update the tags for a post from tags string
+     *
+     * @param Post $post post
+     */
+    public function updateTags(Post $post)
+    {
+        $string = $post->getTagsString();
+        $post->getTags()->clear();
+
+        $tags = explode(',', $string);
+
+        foreach ($tags as $tag) {
+            $t = $this->getTagRepository()->findOneBy(array('name' => trim($tag)));
+
+            if (null === $t) {
+                $t = new Tag();
+                $t->setName(trim($tag));
+
+                $this->getEntityManager()->persist($t);
+            }
+
+            $post->getTags()->add($t);
+        }
+    }
+
+    /**
+     * Get the tag repository
+     *
+     * @return EntityRepository
+     */
+    protected function getTagRepository()
+    {
+        return $this->getEntityManager()->getRepository('Benji07BlogBundle:Tag');
+    }
 }

@@ -2,11 +2,14 @@
 
 namespace Benji07\BlogBundle\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
-use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Datagrid\ListMapper;
-use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Admin\Admin,
+    Sonata\AdminBundle\Form\FormMapper,
+    Sonata\AdminBundle\Datagrid\ListMapper,
+    Sonata\AdminBundle\Show\ShowMapper;
+
 use Benji07\BlogBundle\Entity\Post;
+
+use Doctrine\ORM\EntityManager;
 
 /**
  * Post Admin
@@ -14,6 +17,18 @@ use Benji07\BlogBundle\Entity\Post;
 class PostAdmin extends Admin
 {
     protected $baseRoutePattern = '/post';
+
+    private $entityManager;
+
+    /**
+     * Set EntityManager
+     *
+     * @param EntityManager $entityManager entityManager
+     */
+    public function setEntityManager(EntityManager $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
 
     /**
      * Configuration de la liste
@@ -53,6 +68,10 @@ class PostAdmin extends Admin
                 ))
             ->end()
             ->with('Options')
+                ->add('tagsString', 'text', array(
+                    'required' => false,
+                    'label' => 'Tags'
+                ))
                 ->add('status', 'choice', array(
                     'label' => 'Statut',
                     'choices' => Post::getAvailableStatus()
@@ -73,10 +92,44 @@ class PostAdmin extends Admin
                 'label' => 'Statut',
                 'template' => 'Benji07BlogBundle:PostAdmin:show_status.html.twig'
             ))
+            ->add('createdAt', null, array('label' => 'Crée le'))
             ->add('publishedAt', null, array('label' => 'Publié le'))
+            ->add('tags', null, array('label' => 'Tags'))
             ->add('content', null, array(
                 'label' => 'Contenu',
                 'template' => 'Benji07BlogBundle:PostAdmin:show_content.html.twig'
             ));
+    }
+
+    /**
+     * Trigger on preUpdate
+     *
+     * @param Post $object post
+     */
+    public function preUpdate($object)
+    {
+        $this->preSave($object);
+    }
+
+    /**
+     * Trigger on prePersist
+     *
+     * @param Post $object post
+     */
+    public function prePersist($object)
+    {
+        $this->preSave($object);
+    }
+
+    /**
+     * preSave
+     *
+     * @param Post $object post
+     */
+    public function preSave($object)
+    {
+        $repository = $this->entityManager->getRepository($this->getClass());
+
+        $repository->updateTags($object);
     }
 }

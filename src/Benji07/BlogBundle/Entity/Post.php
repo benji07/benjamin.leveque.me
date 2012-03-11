@@ -83,6 +83,26 @@ class Post
     private $updatedAt;
 
     /**
+     * @var ArrayCollection $tags
+     *
+     * @ORM\ManyToMany(targetEntity="Tag")
+     * @ORM\JoinTable(name="sf2_post_tag",
+     *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")})
+     */
+    private $tags;
+
+    private $tagsString;
+
+    /**
+     * __construct
+     */
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection;
+    }
+
+    /**
      * Get id
      *
      * @return integer
@@ -258,6 +278,54 @@ class Post
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set tags
+     *
+     * @param ArrayCollection $tags tags
+     *
+     * @return Post
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Get Tags
+     *
+     * @return ArrayCollection
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Get tags as string
+     *
+     * @return string
+     */
+    public function getTagsString()
+    {
+        if (null === $this->tagsString) {
+            $this->tagsString = implode(', ', $this->getTags()->toArray());
+        }
+
+        return $this->tagsString;
+    }
+
+    /**
+     * Set tags as string
+     *
+     * @param string $tags les tags
+     */
+    public function setTagsString($tags)
+    {
+        $this->tagsString = $tags;
     }
 
     /**

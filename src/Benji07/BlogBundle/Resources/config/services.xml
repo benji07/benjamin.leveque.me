@@ -17,6 +17,10 @@
             <argument />
             <argument>Benji07\BlogBundle\Entity\Post</argument>
             <argument></argument>
+
+            <call method="setEntityManager">
+                <argument type="service" id="doctrine.orm.entity_manager" />
+            </call>
         </service>
     </services>
 
