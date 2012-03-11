@@ -13,11 +13,6 @@ use Benji07\BlogBundle\Entity\Post;
  */
 class PostAdmin extends Admin
 {
-    /**
-     * The base route pattern used to generate the routing information
-     *
-     * @var string
-     */
     protected $baseRoutePattern = '/post';
 
     /**

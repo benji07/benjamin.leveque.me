@@ -5,13 +5,13 @@ namespace Benji07\BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Benji07\BlogBundle\Entity\Post
  *
  * @ORM\Table(name="sf2_post")
  * @ORM\Entity(repositoryClass="Benji07\BlogBundle\Entity\PostRepository")
- * @ORM\HasLifecycleCallbacks
  */
 class Post
 {
@@ -92,6 +92,21 @@ class Post
      * @Gedmo\Timestampable(on="update")
      */
     private $updatedAt;
+
+    /**
+     * @var ArrayCollection $comments
+     *
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+     */
+    private $comments;
+
+    /**
+     * __construct
+     */
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection;
+    }
 
     /**
      * Get id
@@ -293,6 +308,30 @@ class Post
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set comments
+     *
+     * @param ArrayCollection $comments
+     *
+     * @return Post
+     */
+    public function setComments($comments)
+    {
+        $this->comments = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Get Comments
+     *
+     * @return ArrayCollection
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 
     /**
