@@ -3,6 +3,8 @@
 namespace Benji07\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Benji07\BlogBundle\Entity\Tag
@@ -32,6 +34,7 @@ class Tag
      * @var string $slug
      *
      * @ORM\Column(name="slug", type="string", length=255)
+     * @Gedmo\Slug(fields={"name"})
      */
     private $slug;
 
