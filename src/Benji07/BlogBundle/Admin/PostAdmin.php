@@ -5,7 +5,7 @@ namespace Benji07\BlogBundle\Admin;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
-
+use Sonata\AdminBundle\Show\ShowMapper;
 use Benji07\BlogBundle\Entity\Post;
 
 /**
@@ -24,11 +24,12 @@ class PostAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title', null, array('label' => 'Titre'))
-            ->add('status', null, array('label' => 'Statut', 'template' => 'Benji07BlogBundle:PostAdmin:status.html.twig'))
+            ->add('status', null, array('label' => 'Statut', 'template' => 'Benji07BlogBundle:PostAdmin:list_status.html.twig'))
             ->add('publishedAt', null, array('label' => 'Publié le'))
             ->add('_action', 'actions', array(
                 'name' => 'Actions',
                 'actions' => array(
+                    'view' => array(),
                     'edit' => array(),
                     'delete' => array(),
                 )
@@ -61,5 +62,30 @@ class PostAdmin extends Admin
                     'choices' => Post::getAvailableCommentStatus()
                 ))
             ->end();
+    }
+
+    /**
+     * Configuration de la page show
+     *
+     * @param ShowMapper $filter filter
+     */
+    protected function configureShowFields(ShowMapper $filter)
+    {
+        $filter
+            ->add('title', null, array('label' => 'Titre'))
+            ->add('status', null, array(
+                'label' => 'Statut',
+                'template' => 'Benji07BlogBundle:PostAdmin:show_status.html.twig'
+            ))
+            ->add('commentStatus', null, array(
+                'label' => 'Commentaire',
+                'template' => 'Benji07BlogBundle:PostAdmin:show_comment_status.html.twig'
+            ))
+            ->add('createdAt', null, array('label' => 'Ajouté le'))
+            ->add('publishedAt', null, array('label' => 'Publié le'))
+            ->add('content', null, array(
+                'label' => 'Contenu',
+                'template' => 'Benji07BlogBundle:PostAdmin:show_content.html.twig'
+            ));
     }
 }
