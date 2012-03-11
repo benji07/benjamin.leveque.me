@@ -18,10 +18,6 @@ class Post
     const STATUS_DRAFT = 0;
     CONST STATUS_PUBLISHED = 1;
 
-    const COMMENT_STATUS_OPEN = 0;
-    const COMMENT_STATUS_LIMIT = 1;
-    const COMMENT_STATUS_CLOSE = 2;
-
     /**
      * @var integer $id
      *
@@ -63,13 +59,6 @@ class Post
     private $status = self::STATUS_DRAFT;
 
     /**
-     * @var smallint $commentStatus
-     *
-     * @ORM\Column(name="comment_status", type="smallint")
-     */
-    private $commentStatus = self::COMMENT_STATUS_OPEN;
-
-    /**
      * @var datetime $publishedAt
      *
      * @ORM\Column(name="published_at", type="datetime", nullable=true)
@@ -92,21 +81,6 @@ class Post
      * @Gedmo\Timestampable(on="update")
      */
     private $updatedAt;
-
-    /**
-     * @var ArrayCollection $comments
-     *
-     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
-     */
-    private $comments;
-
-    /**
-     * __construct
-     */
-    public function __construct()
-    {
-        $this->comments = new ArrayCollection;
-    }
 
     /**
      * Get id
@@ -215,30 +189,6 @@ class Post
     }
 
     /**
-     * Set commentStatus
-     *
-     * @param smallint $commentStatus
-     *
-     * @return Post
-     */
-    public function setCommentStatus($commentStatus)
-    {
-        $this->commentStatus = $commentStatus;
-
-        return $this;
-    }
-
-    /**
-     * Get commentStatus
-     *
-     * @return smallint
-     */
-    public function getCommentStatus()
-    {
-        return $this->commentStatus;
-    }
-
-    /**
      * Set publishedAt
      *
      * @param datetime $publishedAt
@@ -311,30 +261,6 @@ class Post
     }
 
     /**
-     * Set comments
-     *
-     * @param ArrayCollection $comments
-     *
-     * @return Post
-     */
-    public function setComments($comments)
-    {
-        $this->comments = $comments;
-
-        return $this;
-    }
-
-    /**
-     * Get Comments
-     *
-     * @return ArrayCollection
-     */
-    public function getComments()
-    {
-        return $this->comments;
-    }
-
-    /**
      * __toString
      *
      * @return string
@@ -354,20 +280,6 @@ class Post
         return array(
             self::STATUS_DRAFT     => 'Brouillon',
             self::STATUS_PUBLISHED => 'Publié'
-        );
-    }
-
-    /**
-     * Get available status for comment
-     *
-     * @return array
-     */
-    public static function getAvailableCommentStatus()
-    {
-        return array(
-            self::COMMENT_STATUS_OPEN  => 'Ouvert',
-            self::COMMENT_STATUS_LIMIT => 'Limité',
-            self::COMMENT_STATUS_CLOSE => 'Fermé'
         );
     }
 }

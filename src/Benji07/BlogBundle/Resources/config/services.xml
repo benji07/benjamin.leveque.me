@@ -10,17 +10,12 @@
     </parameters>-->
 
     <services>
+        <service id="benji07.blog.markdown_parser" class="%benji07.blog.markown_parser.class%"></service>
+
         <service id="benji07.admin.post" class="Benji07\BlogBundle\Admin\PostAdmin">
             <tag name="sonata.admin" manager_type="orm" group="Blog" label="Articles" expanded="true" />
             <argument />
             <argument>Benji07\BlogBundle\Entity\Post</argument>
-            <argument></argument>
-        </service>
-
-        <service id="benji07.admin.comment" class="Benji07\BlogBundle\Admin\CommentAdmin">
-            <tag name="sonata.admin" manager_type="orm" group="Blog" label="Commentaires" expanded="true" />
-            <argument />
-            <argument>Benji07\BlogBundle\Entity\Comment</argument>
             <argument></argument>
         </service>
     </services>

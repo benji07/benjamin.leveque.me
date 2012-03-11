@@ -57,10 +57,6 @@ class PostAdmin extends Admin
                     'label' => 'Statut',
                     'choices' => Post::getAvailableStatus()
                 ))
-                ->add('commentStatus', 'choice', array(
-                    'label' => 'Commentaires',
-                    'choices' => Post::getAvailableCommentStatus()
-                ))
             ->end();
     }
 
@@ -76,10 +72,6 @@ class PostAdmin extends Admin
             ->add('status', null, array(
                 'label' => 'Statut',
                 'template' => 'Benji07BlogBundle:PostAdmin:show_status.html.twig'
-            ))
-            ->add('commentStatus', null, array(
-                'label' => 'Commentaire',
-                'template' => 'Benji07BlogBundle:PostAdmin:show_comment_status.html.twig'
             ))
             ->add('createdAt', null, array('label' => 'Ajouté le'))
             ->add('publishedAt', null, array('label' => 'Publié le'))
