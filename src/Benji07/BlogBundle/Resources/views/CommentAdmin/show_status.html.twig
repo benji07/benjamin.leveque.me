@@ -2,9 +2,9 @@
 
 {% block field %}
     {% if value == constant('Benji07\\BlogBundle\\Entity\\Comment::STATUS_WAIT') %}
-        <span class="label warning">En Attente</span>
+        <span class="label notice">En Attente</span>
     {% elseif value == constant('Benji07\\BlogBundle\\Entity\\Comment::STATUS_SPAM') %}
-        <span class="label danger">Spam</span>
+        <span class="label warning">Spam</span>
     {% else %}
         <span class="label success">Validé</span>
     {% endif %}
