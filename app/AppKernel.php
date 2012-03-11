@@ -34,7 +34,6 @@ class AppKernel extends Kernel
 
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
-            new Benji07\Bundle\AkismetBundle\Benji07AkismetBundle(),
             new Benji07\BlogBundle\Benji07BlogBundle(),
         );
 

@@ -1,11 +1,6 @@
 {
-    "hash": "e8813d08ef801f8d02da0e72337da885",
+    "hash": "9210b381d6fc7dcfe10772ef31a6382b",
     "packages": [
-        {
-            "package": "benji07/akismet-bundle",
-            "version": "dev-master",
-            "source-reference": "b61380b49bd8f18c90cd28ed143eab3b10f3124f"
-        },
         {
             "package": "doctrine/common",
             "version": "2.2.1"
@@ -156,7 +151,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "d2d7aecb64d6dedf9e8580920db67e63ad88572d",
+            "source-reference": "673bbb8a8e3277a059fa213219516ca86b897eb0",
             "alias": "2.1.9999999.9999999-dev"
         },
         {

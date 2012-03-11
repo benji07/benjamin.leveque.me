@@ -1,0 +1,17 @@
+{% extends "SonataAdminBundle::standard_layout.html.twig" %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset('js/prettify.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/lang-yaml.js') }}"></script>
+
+    <script type="text/javascript">
+        setTimeout(function() {prettyPrint();}, 1);
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/son-of-obsidian.css') }}" />
+{% endblock %}
