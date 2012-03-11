@@ -86,3 +86,8 @@ sonata_block:
 benji07_akismet:
     blog: %akismet_url%
     key: %akismet_key%
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true

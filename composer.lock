@@ -1,5 +1,5 @@
 {
-    "hash": "b955e4b564edd8d0c8e0c80e752b10be",
+    "hash": "810447607f4d1f62780e5c4411812251",
     "packages": [
         {
             "package": "benji07/akismet-bundle",
@@ -22,6 +22,11 @@
         {
             "package": "doctrine/orm",
             "version": "2.2.0"
+        },
+        {
+            "package": "gedmo/doctrine-extensions",
+            "version": "dev-master",
+            "source-reference": "a30df5909b763e0462e5e1a40f54c5ebde8ba27f"
         },
         {
             "package": "jms/aop-bundle",
@@ -118,6 +123,11 @@
             "package": "sonata-project/jquery-bundle",
             "version": "dev-master",
             "source-reference": "01ffb8d1a7a4bb3971aed003e4f1ef050a0701aa"
+        },
+        {
+            "package": "stof/doctrine-extensions-bundle",
+            "version": "dev-master",
+            "source-reference": "051a9e00a2805e2cd4e1473e85e8f74dcb70e65c"
         },
         {
             "package": "swiftmailer/swiftmailer",

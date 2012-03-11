@@ -3,12 +3,15 @@
 namespace Benji07\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Benji07\BlogBundle\Entity\Post
  *
  * @ORM\Table(name="sf2_post")
  * @ORM\Entity(repositoryClass="Benji07\BlogBundle\Entity\PostRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Post
 {
@@ -32,6 +35,7 @@ class Post
      * @var string $title
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $title;
 
@@ -39,6 +43,7 @@ class Post
      * @var string $slug
      *
      * @ORM\Column(name="slug", type="string", length=255)
+     * @Gedmo\Slug(fields={"title"})
      */
     private $slug;
 
@@ -46,6 +51,7 @@ class Post
      * @var text $content
      *
      * @ORM\Column(name="content", type="text")
+     * @Assert\NotBlank
      */
     private $content;
 
