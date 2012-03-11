@@ -15,7 +15,13 @@
         "sensio/distribution-bundle": "dev-master",
         "sensio/framework-extra-bundle": "dev-master",
         "sensio/generator-bundle": "dev-master",
-        "jms/security-extra-bundle": "dev-master"
+        "jms/security-extra-bundle": "dev-master",
+
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "sonata-project/intl-bundle": "dev-master",
+        "ornicar/gravatar-bundle": "dev-master",
+        "knplabs/knp-markdown-bundle": "dev-master",
+        "benji07/akismet-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

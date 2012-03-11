@@ -1,9 +1,14 @@
 {
-    "hash": "ae2c4420f240dce0c7c5292bd8d817c5",
+    "hash": "b955e4b564edd8d0c8e0c80e752b10be",
     "packages": [
         {
+            "package": "benji07/akismet-bundle",
+            "version": "dev-master",
+            "source-reference": "b61380b49bd8f18c90cd28ed143eab3b10f3124f"
+        },
+        {
             "package": "doctrine/common",
-            "version": "2.2.0"
+            "version": "2.2.1"
         },
         {
             "package": "doctrine/dbal",
@@ -12,7 +17,7 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "caecd032878c45c05a962d6ddfac4f45a7a39fb1"
+            "source-reference": "cd4848f323da7ab66bed79562a23bf9f291c703e"
         },
         {
             "package": "doctrine/orm",
@@ -33,16 +38,36 @@
         {
             "package": "jms/security-extra-bundle",
             "version": "dev-master",
-            "source-reference": "e43b9a5b5456bb8dd5b07bed7f776a7c233e2091"
+            "source-reference": "5ce520127ba43d90563775a7935d4980ac227853"
+        },
+        {
+            "package": "knplabs/knp-markdown-bundle",
+            "version": "dev-master",
+            "source-reference": "8a7637054b945c2fd5fbeece2cf98139fb79d8f3"
+        },
+        {
+            "package": "knplabs/knp-menu",
+            "version": "dev-master",
+            "source-reference": "f818c58d89885c5eb1e305f5b7360588fd49fbab"
+        },
+        {
+            "package": "knplabs/knp-menu-bundle",
+            "version": "dev-master",
+            "source-reference": "462b7b40e5c17813a6d14929d7bca7d0511c7736"
         },
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "58e9c45aa27be35d16add0394e1e254b82f3f914"
+            "source-reference": "2634d29cc193981761e3daf28e1afc6358bb43b1"
         },
         {
             "package": "monolog/monolog",
             "version": "1.0.2"
+        },
+        {
+            "package": "ornicar/gravatar-bundle",
+            "version": "dev-master",
+            "source-reference": "e5aedca3bd066081e16912ca8be96ba4ca570d0a"
         },
         {
             "package": "sensio/distribution-bundle",
@@ -52,12 +77,47 @@
         {
             "package": "sensio/framework-extra-bundle",
             "version": "dev-master",
-            "source-reference": "1b0ca00361050760f14f70be6f3a31f125211f3d"
+            "source-reference": "d371c21a464b9f1ac6bfebf643e14a4d88acd2d8"
         },
         {
             "package": "sensio/generator-bundle",
             "version": "dev-master",
-            "source-reference": "fe924497677ea41d0d09f0c011e55142bda12cd7"
+            "source-reference": "43c5c95e42e451ac7250d6a863f0540c7f266e1d"
+        },
+        {
+            "package": "sonata-project/admin-bundle",
+            "version": "dev-master",
+            "source-reference": "727f859a837ee351bc32cfc8aff4bd25704b1756"
+        },
+        {
+            "package": "sonata-project/block-bundle",
+            "version": "dev-master",
+            "source-reference": "ff34c3fe75bcedc739f3d4f8ad7f0a3b840b75e4"
+        },
+        {
+            "package": "sonata-project/cache-bundle",
+            "version": "dev-master",
+            "source-reference": "f696ef803dbd12b68e51e50acacdae6ef28078e6"
+        },
+        {
+            "package": "sonata-project/doctrine-orm-admin-bundle",
+            "version": "dev-master",
+            "source-reference": "b5d38449cd768d01b106c8bb8409f07c02b88deb"
+        },
+        {
+            "package": "sonata-project/exporter",
+            "version": "dev-master",
+            "source-reference": "95f3d6f187ded8e4614f0c3e7e871b79a124b536"
+        },
+        {
+            "package": "sonata-project/intl-bundle",
+            "version": "dev-master",
+            "source-reference": "652afb136db334f9e275fbbe45b00dd055607a73"
+        },
+        {
+            "package": "sonata-project/jquery-bundle",
+            "version": "dev-master",
+            "source-reference": "01ffb8d1a7a4bb3971aed003e4f1ef050a0701aa"
         },
         {
             "package": "swiftmailer/swiftmailer",
@@ -66,7 +126,7 @@
         {
             "package": "symfony/assetic-bundle",
             "version": "dev-master",
-            "source-reference": "da4a46ce37557dcf3068b8493b12bdbbe47455e2"
+            "source-reference": "52cf0eaa7160cbe33bcf1ed7224c7619ceeebbdc"
         },
         {
             "package": "symfony/monolog-bundle",
@@ -86,7 +146,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "3de31c62d6d695477803d797177fbfe2a2fa3ef5",
+            "source-reference": "d2d7aecb64d6dedf9e8580920db67e63ad88572d",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
@@ -96,8 +156,10 @@
         },
         {
             "package": "twig/twig",
-            "version": "1.6.0"
+            "version": "1.6.1"
         }
     ],
-    "aliases": []
+    "aliases": [
+
+    ]
 }
