@@ -1,0 +1,9 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+    {% if value == constant('Benji07\\BlogBundle\\Entity\\Post::STATUS_DRAFT') %}
+        <span class="label warning">Brouillon</span>
+    {% else %}
+        <span class="label success">Publié</span>
+    {% endif %}
+{% endblock %}

@@ -4,17 +4,18 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
-    <parameters>
+
+    <!--<parameters>
         <parameter key="benji07_blog.example.class">Benji07\BlogBundle\Example</parameter>
-    </parameters>
+    </parameters>-->
 
     <services>
-        <service id="benji07_blog.example" class="%benji07_blog.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="benji07.admin.post" class="Benji07\BlogBundle\Admin\PostAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Blog" label="Articles" expanded="true" />
+            <argument />
+            <argument>Benji07\BlogBundle\Entity\Post</argument>
+            <argument></argument>
         </service>
     </services>
-    -->
+
 </container>
