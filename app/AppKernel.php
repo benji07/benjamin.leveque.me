@@ -32,8 +32,6 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
 
-            new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
-
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
             new Benji07\Bundle\AkismetBundle\Benji07AkismetBundle(),

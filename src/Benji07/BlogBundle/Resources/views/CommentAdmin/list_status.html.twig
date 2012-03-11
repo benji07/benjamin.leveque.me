@@ -1,0 +1,11 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+    {% if value == constant('Benji07\\BlogBundle\\Entity\\Comment::STATUS_WAIT') %}
+        <span class="label warning">En Attente</span>
+    {% elseif value == constant('Benji07\\BlogBundle\\Entity\\Comment::STATUS_SPAM') %}
+        <span class="label danger">Spam</span>
+    {% else %}
+        <span class="label success">Validé</span>
+    {% endif %}
+{% endblock %}

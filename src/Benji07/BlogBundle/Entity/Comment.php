@@ -322,6 +322,16 @@ class Comment
     }
 
     /**
+     * Get Gravatar md5
+     *
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return md5($this->getEmail());
+    }
+
+    /**
      * Get Available status
      *
      * @return array
