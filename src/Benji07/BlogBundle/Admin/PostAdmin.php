@@ -73,7 +73,6 @@ class PostAdmin extends Admin
                 'label' => 'Statut',
                 'template' => 'Benji07BlogBundle:PostAdmin:show_status.html.twig'
             ))
-            ->add('createdAt', null, array('label' => 'Ajouté le'))
             ->add('publishedAt', null, array('label' => 'Publié le'))
             ->add('content', null, array(
                 'label' => 'Contenu',

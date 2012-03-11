@@ -83,12 +83,12 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts:   [admin]
 
-benji07_akismet:
-    blog: %akismet_url%
-    key: %akismet_key%
-
 stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
             timestampable: true
+
+knp_markdown:
+    parser:
+        service: benji07.blog.markdown_parser

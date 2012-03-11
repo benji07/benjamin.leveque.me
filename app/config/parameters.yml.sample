@@ -13,6 +13,3 @@ parameters:
 
   locale:            fr
   secret:            ThisTokenIsNotSoSecretChangeIt
-
-  akismet_url: ~
-  akismet_key: ~
