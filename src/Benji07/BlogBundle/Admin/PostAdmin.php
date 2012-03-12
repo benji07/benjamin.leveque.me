@@ -39,6 +39,7 @@ class PostAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title', null, array('label' => 'Titre'))
+            ->add('tags')
             ->add('status', null, array('label' => 'Statut', 'template' => 'Benji07BlogBundle:PostAdmin:list_status.html.twig'))
             ->add('publishedAt', null, array('label' => 'Publié le'))
             ->add('_action', 'actions', array(
@@ -72,6 +73,7 @@ class PostAdmin extends Admin
                     'required' => false,
                     'label' => 'Tags'
                 ))
+                ->add('tags')
                 ->add('status', 'choice', array(
                     'label' => 'Statut',
                     'choices' => Post::getAvailableStatus()
