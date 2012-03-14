@@ -25,11 +25,17 @@ class PostRepository extends EntityRepository
         $tags = explode(',', $string);
 
         foreach ($tags as $tag) {
-            $t = $this->getTagRepository()->findOneBy(array('name' => trim($tag)));
+            $tag = trim($tag);
+
+            if ('' === $tag) {
+                continue;
+            }
+
+            $t = $this->getTagRepository()->findOneBy(array('name' => $tag));
 
             if (null === $t) {
                 $t = new Tag();
-                $t->setName(trim($tag));
+                $t->setName($tag);
 
                 $this->getEntityManager()->persist($t);
             }
