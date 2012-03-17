@@ -7,9 +7,8 @@ use Sonata\AdminBundle\Admin\Admin,
     Sonata\AdminBundle\Datagrid\ListMapper,
     Sonata\AdminBundle\Show\ShowMapper;
 
-use Benji07\BlogBundle\Entity\Post;
-
-use Doctrine\ORM\EntityManager;
+use Benji07\BlogBundle\Entity\Post,
+    Benji07\BlogBundle\Entity\BlogManager;
 
 /**
  * Post Admin
@@ -18,16 +17,16 @@ class PostAdmin extends Admin
 {
     protected $baseRoutePattern = '/post';
 
-    private $entityManager;
+    private $manager;
 
     /**
-     * Set EntityManager
+     * Set Blog manager
      *
-     * @param EntityManager $entityManager entityManager
+     * @param BlogManager $manager manager
      */
-    public function setEntityManager(EntityManager $entityManager)
+    public function setManager(BlogManager $manager)
     {
-        $this->entityManager = $entityManager;
+        $this->manager = $manager;
     }
 
     /**
@@ -73,7 +72,6 @@ class PostAdmin extends Admin
                     'required' => false,
                     'label' => 'Tags'
                 ))
-                ->add('tags')
                 ->add('status', 'choice', array(
                     'label' => 'Statut',
                     'choices' => Post::getAvailableStatus()
@@ -130,8 +128,6 @@ class PostAdmin extends Admin
      */
     public function preSave($object)
     {
-        $repository = $this->entityManager->getRepository($this->getClass());
-
-        $repository->updateTags($object);
+        $this->manager->updateTags($object);
     }
 }

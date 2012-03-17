@@ -1,1 +1,3 @@
-Hello {{ name }}!
+{% for post in pagination %}
+    <h2><a href="{{ path('blog_show', {slug: post.slug}) }}">{{ post }}</a></h2>
+{% endfor %}

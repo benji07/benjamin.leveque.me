@@ -91,4 +91,4 @@ stof_doctrine_extensions:
 
 knp_markdown:
     parser:
-        service: benji07.blog.markdown_parser
+        service: benji07_blog.markdown_parser

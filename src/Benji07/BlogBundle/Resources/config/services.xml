@@ -6,28 +6,35 @@
 
 
     <parameters>
-        <parameter key="benji07.blog.markown_parser.class">Benji07\BlogBundle\MarkdownParser</parameter>
+        <parameter key="benji07_blog.markown_parser.class">Benji07\BlogBundle\MarkdownParser</parameter>
+
+        <parameter key="benji07_blog.manager.class">Benji07\BlogBundle\Entity\BlogManager</parameter>
     </parameters>
 
     <services>
-        <service id="benji07.blog.markdown_parser" class="%benji07.blog.markown_parser.class%"></service>
+        <service id="benji07_blog.markdown_parser" class="%benji07_blog.markown_parser.class%"></service>
 
-        <service id="benji07.blog.admin.post" class="Benji07\BlogBundle\Admin\PostAdmin">
+        <service id="benji07_blog.admin.post" class="Benji07\BlogBundle\Admin\PostAdmin">
             <tag name="sonata.admin" manager_type="orm" group="Blog" label="Articles" expanded="true" />
             <argument />
             <argument>Benji07\BlogBundle\Entity\Post</argument>
             <argument></argument>
 
-            <call method="setEntityManager">
-                <argument type="service" id="doctrine.orm.entity_manager" />
+            <call method="setManager">
+                <argument type="service" id="benji07_blog.manager" />
             </call>
         </service>
 
-        <service id="benji07.blog.admin.tag" class="Benji07\BlogBundle\Admin\TagAdmin">
+        <service id="benji07_blog.admin.tag" class="Benji07\BlogBundle\Admin\TagAdmin">
             <tag name="sonata.admin" manager_type="orm" group="Blog" label="Tags" expanded="true" />
             <argument />
             <argument>Benji07\BlogBundle\Entity\Tag</argument>
             <argument></argument>
+        </service>
+
+        <service id="benji07_blog.manager" class="%benji07_blog.manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="knp_paginator" />
         </service>
     </services>
 

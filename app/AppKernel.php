@@ -3,8 +3,16 @@
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
+/**
+ * AppKernel
+ */
 class AppKernel extends Kernel
 {
+    /**
+     * Register Bundles
+     *
+     * @return array
+     */
     public function registerBundles()
     {
         $bundles = array(
@@ -31,6 +39,7 @@ class AppKernel extends Kernel
 
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
@@ -47,6 +56,11 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
+    /**
+     * Register container configuration
+     *
+     * @param LoaderInterface $loader Loader
+     */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');

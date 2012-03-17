@@ -13,44 +13,40 @@ use Doctrine\ORM\EntityRepository;
 class PostRepository extends EntityRepository
 {
     /**
-     * Update the tags for a post from tags string
+     * Get Published post query
      *
-     * @param Post $post post
+     * @return Doctrine\ORM\QueryBuilder
      */
-    public function updateTags(Post $post)
+    public function getPublishedQuery()
     {
-        $string = $post->getTagsString();
-        $post->getTags()->clear();
+        $qb = $this->createQueryBuilder('p');
 
-        $tags = explode(',', $string);
+        $qb
+            ->where('p.status = :status')
+            ->orderBy('p.publishedAt', 'DESC')
 
-        foreach ($tags as $tag) {
-            $tag = trim($tag);
+            ->setParameter('status', Post::STATUS_PUBLISHED);
 
-            if ('' === $tag) {
-                continue;
-            }
-
-            $t = $this->getTagRepository()->findOneBy(array('name' => $tag));
-
-            if (null === $t) {
-                $t = new Tag();
-                $t->setName($tag);
-
-                $this->getEntityManager()->persist($t);
-            }
-
-            $post->getTags()->add($t);
-        }
+        return $qb;
     }
 
     /**
-     * Get the tag repository
+     * Get Published post for a tag query
      *
-     * @return EntityRepository
+     * @param Tag $tag tag
+     *
+     * @return Doctrine\ORM\QueryBuilder
      */
-    protected function getTagRepository()
+    public function getPublishedQueryForTag(Tag $tag)
     {
-        return $this->getEntityManager()->getRepository('Benji07BlogBundle:Tag');
+        $qb = $this->getPublishedQuery();
+
+        $qb
+            ->leftJoin('p.tags', 't')
+            ->andWhere('t.id = :tag')
+
+            ->setParameter('tag', $tag->getId());
+
+        return $qb;
     }
 }
