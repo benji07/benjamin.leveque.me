@@ -2,21 +2,23 @@
 
 {% block body %}
 
-    <h1>{{ post.title }}</h1>
+    <div class="entry single">
+        <h1 class="entry-title">{{ post.title }}</h1>
 
-    <div class="metas">
-         <small>{{ post.publishedAt|format_date }}</small>
-        {% if post.tags|length %}
-            <small>
-                {% for tag in post.tags %}
-                    <a href="{{path('blog_tag', {slug: tag.slug}) }}">{{tag}}</a>
-                {% endfor %}
-            </small>
-        {% endif %}
-    </div>
+        <div class="post-info">
+            <small class="date">{{ post.publishedAt|format_date }}</small>
+            {% if post.tags|length %}
+                <small class="tags">
+                    {% for tag in post.tags %}
+                        <a href="{{path('blog_tag', {slug: tag.slug}) }}">{{tag}}</a>
+                    {% endfor %}
+                </small>
+            {% endif %}
+        </div>
 
-    <div>
-        {{ post.content|markdown }}
+        <div class="entry-content">
+            {{ post.content|markdown }}
+        </div>
     </div>
 
     <div id="disqus_thread"></div>
