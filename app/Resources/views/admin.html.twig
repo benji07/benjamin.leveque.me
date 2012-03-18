@@ -5,7 +5,9 @@
 
     <script type="text/javascript" src="{{ asset('js/prettify.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/lang-yaml.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+    <script type="text/javascript">
+        addEventListener('load', function (event) { prettyPrint() }, false);
+    </script>
 {% endblock %}
 
 {% block stylesheets %}

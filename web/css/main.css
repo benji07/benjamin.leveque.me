@@ -71,6 +71,11 @@ pre , code, kbd, samp {
 pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px;}
 pre code { border: 0px !important; }
 
+code {
+  border: 0px !important;
+  background-color: transparent !important;
+}
+
 
 b, strong { font-weight: bold; }
 
