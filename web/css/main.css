@@ -7,7 +7,7 @@ body{
   line-height:1.5em;
   padding:1em;
   background:#fefefe;
-  max-width: 960px;
+  max-width: 980px;
 }
 
 a{ color: #0645ad; text-decoration:none;}
@@ -97,7 +97,7 @@ td { vertical-align: top; }
   body{font-size:14px;}
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 995px) {
   body{font-size:16px;}
 }
 
