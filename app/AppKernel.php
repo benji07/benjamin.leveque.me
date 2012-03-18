@@ -44,6 +44,7 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
             new Benji07\BlogBundle\Benji07BlogBundle(),
+            new Benji07\MainBundle\Benji07MainBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

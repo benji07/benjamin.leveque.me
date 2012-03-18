@@ -38,7 +38,7 @@
         {
             "package": "jms/security-extra-bundle",
             "version": "dev-master",
-            "source-reference": "5ce520127ba43d90563775a7935d4980ac227853"
+            "source-reference": "36c698d3e22241a97b55422dc963ba2cc041fb3a"
         },
         {
             "package": "knplabs/knp-components",
@@ -58,7 +58,7 @@
         {
             "package": "knplabs/knp-menu-bundle",
             "version": "dev-master",
-            "source-reference": "462b7b40e5c17813a6d14929d7bca7d0511c7736"
+            "source-reference": "c20933d2b988a3bd0944a0fd9e00068c30f0d27f"
         },
         {
             "package": "knplabs/knp-paginator-bundle",
@@ -161,7 +161,8 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "3d84153d687c285b1356683298531421ec108359"
+            "source-reference": "3d84153d687c285b1356683298531421ec108359",
+            "alias": "2.1.9999999.9999999-dev"
         },
         {
             "package": "twig/extensions",
@@ -170,7 +171,7 @@
         },
         {
             "package": "twig/twig",
-            "version": "1.6.1"
+            "version": "1.6.2"
         }
     ],
     "aliases": [
