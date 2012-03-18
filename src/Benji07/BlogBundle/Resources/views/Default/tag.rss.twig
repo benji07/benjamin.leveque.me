@@ -1,1 +1,20 @@
-tag.rss.twig
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>{{ tag }} - Benjamin Lévêque</title>
+        <link>{{ url('blog_tag', {slug: tag.slug}) }}</link>
+        <description></description>
+        <pubDate>{{pagination[0].publishedAt|date(constant('DATE_RSS'))}}</pubDate>
+        <managingEditor>benjamin@leveque.me (Benjamin Lévêque)</managingEditor>
+        <language>fr</language>
+        {% for post in pagination %}<item>
+            <title><![CDATA[{{ post }}]]></title>
+            <link>{{ url('blog_show', {'slug': post.slug}) }}</link>
+            <description><![CDATA[{% spaceless %}{{post.content|markdown}}{%endspaceless %}]]></description>
+            <guid isPermaLink="false">{{post.id}}</guid>
+            <author>benjamin@leveque.me (Benjamin Lévêque)</author>
+            <pubDate>{{post.publishedAt|date(constant('DATE_RSS'))}}</pubDate>
+            <comments></comments>
+        </item>{% endfor %}
+    </channel>
+</rss>

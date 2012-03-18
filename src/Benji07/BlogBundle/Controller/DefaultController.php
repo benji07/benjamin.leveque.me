@@ -18,7 +18,7 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
-     * @Route("/rss.xml", name="rss", defaults={"_format"="rss"})
+     * @Route("/rss.xml", name="blog_rss", defaults={"_format"="rss"})
      * @Template
      *
      * @return array()

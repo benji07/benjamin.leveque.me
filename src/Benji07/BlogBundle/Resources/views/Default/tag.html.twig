@@ -1,5 +1,11 @@
 {% extends "::base.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="alternate" type="application/rss+xml" title="{{ tag }} - Benjamin Lévêque RSS" href="{{ path('blog_tag_rss', {slug: tag.slug}) }}"></link>
+{% endblock %}
+
 {% block body %}
 
     <h1>Articles pour le tag : {{ tag }}</h1>
@@ -11,4 +17,5 @@
     <div class="navigation">
         {{ pagination.render()|raw }}
     </div>
+
 {% endblock %}

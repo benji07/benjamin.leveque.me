@@ -6,6 +6,7 @@
         {% block stylesheets %}
             <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
             <link rel="stylesheet" type="text/css" href="{{ asset('css/son-of-obsidian.css') }}" />
+            <link rel="alternate" type="application/rss+xml" title="Blog - Benjamin Lévêque RSS" href="{{ path('blog_rss') }}"></link>
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
