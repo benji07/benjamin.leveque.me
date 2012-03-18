@@ -6,7 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use Benji07\BlogBundle\Entity\Post;
+use Benji07\BlogBundle\Entity\Post,
+    Benji07\BlogBundle\Entity\Tag;
 
 /**
  * Benji07BlogBundle DefaultController
@@ -53,6 +54,7 @@ class DefaultController extends Controller
      *
      * @Route("/tags/{slug}.html", name="blog_tag")
      * @Route("/tags/{slug}.xml", name="blog_tag_rss", defaults={"_format"="rss"})
+     * @Template
      *
      * @return array
      */
@@ -62,7 +64,7 @@ class DefaultController extends Controller
 
         $pagination = $this->getManager()->getPostPager($page, $tag);
 
-        return array('pagination' => $pagination);
+        return array('tag' => $tag, 'pagination' => $pagination);
     }
 
     /**

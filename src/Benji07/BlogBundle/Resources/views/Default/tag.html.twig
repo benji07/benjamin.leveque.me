@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+    <h1>Articles pour le tag : {{ tag }}</h1>
+
+    {% for post in pagination %}
+        <h2><a href="{{ path('blog_show', {slug: post.slug}) }}">{{ post }}</a> <small>{{ post.publishedAt|format_date }}</small></h2>
+    {% endfor %}
+
+    <div class="navigation">
+        {{ pagination.render()|raw }}
+    </div>
+{% endblock %}

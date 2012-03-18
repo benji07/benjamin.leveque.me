@@ -3,11 +3,34 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/son-of-obsidian.css') }}" />
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+
+        <header>
+            <h1>Benjamin Lévêque</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ path('homepage') }}">Blog</a></li>
+                    <li><a href="">Veille</a></li>
+                    <li><a href="">À propos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div style="clear: both"></div>
+
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('js/prettify.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/lang-yaml.js') }}"></script>
+            <script type="text/javascript">
+                addEventListener('load', function (event) { prettyPrint() }, false);
+            </script>
+        {% endblock %}
     </body>
 </html>
