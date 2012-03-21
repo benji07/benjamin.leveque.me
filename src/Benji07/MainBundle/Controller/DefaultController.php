@@ -39,6 +39,10 @@ class DefaultController extends Controller
      */
     public function aboutAction()
     {
-        return array();
+        $r = $this->getDoctrine()->getEntityManager()->getRepository('Benji07MainBundle:Project');
+
+        $projects = $r->findBy(array('active' => true), array('createdAt' => 'DESC'));
+
+        return array('projects' => $projects);
     }
 }

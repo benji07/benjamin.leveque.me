@@ -11,5 +11,16 @@
             <argument>Benji07\MainBundle\Entity\Link</argument>
             <argument></argument>
         </service>
+
+        <service id="benji07_main.admin.project" class="Benji07\MainBundle\Admin\ProjectAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Application" label="Projets" expanded="true" />
+            <argument />
+            <argument>Benji07\MainBundle\Entity\Project</argument>
+            <argument></argument>
+
+            <call method="setUploadPath">
+                <argument>%kernel.root_dir%/../web/uploads/projects</argument>
+            </call>
+        </service>
     </services>
 </container>

@@ -120,3 +120,43 @@ header nav li {
   list-style: none;
   margin: 0 1em;
 }
+
+ul.media {
+    margin: 0;
+    padding: 0;
+}
+ul.media li {
+    display: inline;
+}
+ul.media li a {
+    float: left;
+    padding: 4px;
+    margin: 0 20px 18px 0;
+    border: 1px solid #DDD;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    position: relative;
+}
+
+ul.media li a span {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    background: url(/images/about/black75.png);
+    color: white;
+    right: -2px;
+    padding: 5px;
+    font-size: 12px;
+}
+
+ul.media li a:hover span {
+    display: block;
+}
+
+ul.media li a span strong {
+    display: block;
+}
