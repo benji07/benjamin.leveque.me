@@ -7,7 +7,7 @@ body{
   line-height:1.5em;
   padding:1em;
   background:#fefefe;
-  max-width: 980px;
+  width: 980px;
 }
 
 a{ color: #0645ad; text-decoration:none;}
@@ -98,12 +98,8 @@ img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 table { border-collapse: collapse; border-spacing: 0; }
 td { vertical-align: top; }
 
-@media only screen and (min-width: 480px) {
-  body{font-size:14px;}
-}
-
-@media only screen and (min-width: 995px) {
-  body{font-size:16px;}
+body{
+  font-size:16px;
 }
 
 header h1 {
@@ -151,6 +147,7 @@ ul.media li a span {
     right: -2px;
     padding: 5px;
     font-size: 12px;
+    width: 150px;
 }
 
 ul.media li a:hover span {
