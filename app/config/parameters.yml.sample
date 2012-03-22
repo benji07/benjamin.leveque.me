@@ -13,3 +13,7 @@ parameters:
 
   locale:            fr
   secret:            ThisTokenIsNotSoSecretChangeIt
+
+  admin_encoder: plaintext
+  admin_username: admin
+  admin_password: admin
