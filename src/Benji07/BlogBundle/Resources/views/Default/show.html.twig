@@ -35,7 +35,7 @@
         var disqus_identifier = '{{ post.id }}';
         var disqus_url = '{{ url('blog_show', {slug: post.slug}) }}';
         var disqus_title = '{{ post.title }}';
-        var disqus_developer = 1;
+        var disqus_developer = {{app.debug}};
     </script>
     <script type="text/javascript" src="{{ asset('js/disqus.js') }}"></script>
 {% endblock %}
