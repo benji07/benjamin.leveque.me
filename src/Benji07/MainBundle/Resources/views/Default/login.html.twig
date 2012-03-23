@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <form action="{{path('login_check')}}" method="post" class="form-stacked">
+        <div class="clearfix">
+            <label for="username">Pseudo</label>
+            <div class="input">
+                <input class="xlarge" id="username" name="_username" type="text" value="{{last_username}}"/>
+            </div>
+        </div><!-- /clearfix -->
+        <div class="clearfix {% if error %}error{% endif %}">
+            <label for="password">Mot de passe</label>
+            <div class="input">
+                <input class="xlarge" id="password" name="_password" type="password"/>
+            </div>
+            {% if error %}
+                <span class="help-block error">{{error.message}}</span>
+            {% endif %}
+        </div><!-- /clearfix -->
+
+        <div class="actions">
+            <input type="submit" class="btn primary" value="Connexion">
+        </div>
+    </form>
+{% endblock %}

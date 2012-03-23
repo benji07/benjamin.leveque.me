@@ -1,7 +1,7 @@
 SetEnv REGISTER_GLOBALS 0
 SetEnv MAGIC_QUOTES 0
 SetEnv ZEND_OPTIMIZER 1
-SetEnv PHP_VER 5_TEST
+SetEnv PHP_VER 5_3
 Options +FollowSymLinks +ExecCGI
 
 <IfModule mod_rewrite.c>

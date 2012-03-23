@@ -13,10 +13,15 @@ security:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+        login:
+            pattern:  ^/admin/login$
+            security: false
+
         secured_area:
             pattern:    ^/admin/
+            form_login:
+                login_path:  /admin/login
+                check_path:  /admin/login_check
             logout:
-                path:   /demo/secured/logout
-                target: /demo/
-            http_basic:
-                realm: "Secured Demo Area"
+                path:   /admin/logout
+                target: /
