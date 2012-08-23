@@ -1,6 +1,6 @@
 <?php
 
-if (!$loader = include __DIR__.'/../vendor/.composer/autoload.php') {
+if (!$loader = include __DIR__.'/../vendor/autoload.php') {
     $nl = PHP_SAPI === 'cli' ? PHP_EOL : '<br />';
     echo "$nl$nl";
     if (is_writable(dirname(__DIR__)) && $installer = @file_get_contents('http://getcomposer.org/installer')) {
@@ -28,8 +28,3 @@ if (!function_exists('intl_get_error_code')) {
 }
 
 AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
-
-// Swiftmailer needs a special autoloader to allow
-// the lazy loading of the init file (which is expensive)
-require_once __DIR__.'/../vendor/swiftmailer/swiftmailer/lib/classes/Swift.php';
-Swift::registerAutoload(__DIR__.'/../vendor/swiftmailer/swiftmailer/lib/swift_init.php');

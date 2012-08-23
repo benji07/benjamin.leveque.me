@@ -5,6 +5,7 @@ namespace Benji07\MainBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 
 use Symfony\Component\Security\Core\SecurityContext;
 
@@ -16,6 +17,7 @@ class DefaultController extends Controller
     /**
      * @Route("/veille", name="veille")
      * @Template()
+     * @Cache(public=true, expires="1 day")
      *
      * @return array
      */
@@ -36,6 +38,7 @@ class DefaultController extends Controller
     /**
      * @Route("/about", name="about")
      * @Template
+     * @Cache(public=true, expires="1 day")
      *
      * @return array
      */

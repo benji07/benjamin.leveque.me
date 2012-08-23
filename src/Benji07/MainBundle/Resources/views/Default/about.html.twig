@@ -2,9 +2,9 @@
 
 {% block body %}
 
-<img src="http://placekitten.com/g/220/240" style="float: left; margin-right: 1em"/>
+<img src="http://graph.facebook.com/benjamin.leveque/picture?type=large" style="float: left; margin-right: 1em"/>
 
-<p>Je m'appelle <strong>Benjamin Lévêque</strong>, j'ai <strong>24 ans</strong> et j'habite à <strong>Lyon</strong>. Je travail pour la société <strong><a href="">Elao</a></strong> depuis 3 ans en tant que <strong>Responsable technique</strong>.</p>
+<p>Je m'appelle <strong>Benjamin Lévêque</strong>, j'ai <strong>24 ans</strong> et j'habite à <strong>Lyon</strong>. Je travail pour la société <strong><a href="">Elao</a></strong> depuis 4 ans en tant que <strong>Responsable technique</strong>.</p>
 
 <p>Société pour laquelle je réalise des applications en utilisant <strong>Symfony2</strong>, </strong>Doctrine</strong>, <strong>jQuery</strong> et <strong>Git</strong></p>
 
@@ -14,24 +14,8 @@
 <p>
     <a href="https://twitter.com/benji__07" class="twitter-follow-button" data-show-count="false" data-lang="fr">Suivre @benji__07</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-    <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=benji07&amp;type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="115px" height="20px"></iframe>
+    <iframe src="http://ghbtns.com/github-btn.html?user=benji07&type=follow"
+  allowtransparency="true" frameborder="0" scrolling="0" width="132px" height="20px"></iframe>
 </p>
-
-<h3>Les projets auquels j'ai participé</h3>
-
-<ul class="media">
-    {% for project in projects %}
-        <li>
-            <a href="">
-                <img src="/uploads/{{ project.picture }}" alt="{{ project.title }}"/>
-                <span>
-                    <strong>{{ project.title }}</strong>
-                    {{ project.description }}
-                </span>
-            </a>
-        </li>
-    {% endfor %}
-</ul>
 
 {% endblock %}
