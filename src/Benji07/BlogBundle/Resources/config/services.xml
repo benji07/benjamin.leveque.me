@@ -7,8 +7,8 @@
 
     <parameters>
         <parameter key="benji07_blog.markown_parser.class">Benji07\BlogBundle\MarkdownParser</parameter>
-
         <parameter key="benji07_blog.manager.class">Benji07\BlogBundle\Entity\BlogManager</parameter>
+        <parameter key="benji07_blog.twig.extension.intl.class">Twig_Extensions_Extension_Intl</parameter>
     </parameters>
 
     <services>
@@ -35,6 +35,10 @@
         <service id="benji07_blog.manager" class="%benji07_blog.manager.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="knp_paginator" />
+        </service>
+
+        <service id="benji07_blog.twig.extension.intl" class="%benji07_blog.twig.extension.intl.class%" public="false">
+            <tag name="twig.extension" />
         </service>
     </services>
 

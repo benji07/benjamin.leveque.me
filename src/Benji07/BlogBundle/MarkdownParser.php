@@ -16,7 +16,7 @@ class MarkdownParser extends BaseMarkdownParser
      *
      * @return string
      */
-    protected function _doCodeBlocks_callback($matches)
+    public function _doCodeBlocks_callback($matches)
     {
         $codeblock = $matches[1];
 

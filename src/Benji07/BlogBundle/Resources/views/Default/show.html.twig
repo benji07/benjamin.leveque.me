@@ -8,7 +8,7 @@
         <h1 class="entry-title">{{ post.title }}</h1>
 
         <div class="post-info">
-            <small class="date">{{ post.publishedAt|format_date }}</small>
+            <small class="date">{{ post.publishedAt|localizeddate('medium', 'none') }}</small>
             {% if post.tags|length %}
                 <small class="tags">
                     {% for tag in post.tags %}

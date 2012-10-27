@@ -3,7 +3,7 @@
 {% block body %}
 
     {% for link in pagination %}
-        <h5><a href="{{ link.url }}">{{ link }}</a> <small>{{ link.createdAt|format_datetime }}</small></h5>
+        <h5><a href="{{ link.url }}">{{ link }}</a> <small>{{ link.createdAt|localizeddate }}</small></h5>
     {% endfor %}
 
     <div class="navigation">
