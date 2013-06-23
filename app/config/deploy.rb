@@ -40,4 +40,4 @@ ssh_options[:forward_agent] = true
 after :deploy, 'deploy:cleanup'
 
 # Be more verbose by uncommenting the following line
-#logger.level = Logger::MAX_LEVEL
+logger.level = Logger::MAX_LEVEL
